@@ -15,7 +15,9 @@ def start_here():
 # route to display a simple web page
 @app.route('/hello')
 def say_hello():
-    return render_template("hello.html")
+    hel_o = render_template("hello.html")
+    print hel_o
+    return hel_o
 
 @app.route('/game')
 def show_game_form():
@@ -23,10 +25,14 @@ def show_game_form():
    answer = request.args.get("playPreference")
   
    if answer == "Yes":
-    return render_template("game.html")
+    gam_e = render_template("game.html")
+    print gam_e
+    return gam_e
         
    else:
-    return render_template("goodbye.html")
+    goo_d = render_template("goodbye.html")
+    print goo_d
+    return goo_d
 
 
 @app.route('/greet')
@@ -40,12 +46,16 @@ def greet_person():
 
     compliment = choice(AWESOMENESS)
 
-    return render_template("compliment.html", person=player, compliment=compliment)
+    
+    compl = render_template("compliment.html", person=player, compliment=compliment)
+    print compl
+    return compl
 
 @app.route('/madlib')
 def show_madlib():
-  return render_template("madlib.html")
-   
+  mad_l = render_template("madlib.html")
+  print mad_l
+  return mad_l
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
