@@ -17,12 +17,24 @@ def start_here():
 def say_hello():
     return render_template("hello.html")
 
+@app.route('/game')
+def show_game_form():
+
+   answer = request.args.get("playPreference")
+   # print answer 
+   if answer == "Yes":
+    return render_template("game.html")
+        
+   else:
+    return render_template("goodbye.html")
+
+
 @app.route('/greet')
 def greet_person():
     player = request.args.get("person")
-    return render_template("compliment.html")
-    
-     AWESOMENESS = [
+  
+
+    AWESOMENESS = [
         'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
         'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful', 'smashing', 'lovely']
 
@@ -30,20 +42,9 @@ def greet_person():
 
     return render_template("compliment.html", person=player, compliment=compliment)
 
-
-@app.route('/game')
-def show_game_form():
-
-   answer = request.args.get("playPreference")
-   # print answer 
-   if answer == "no":
-    return render_template("goodbye.html")
-        
-   # else:
-
-    #return render_template("game.html")
-
-
+@app.route('/madlib')
+def show_madlib():
+  return render_template("madlib.html")
    
 
 if __name__ == '__main__':
