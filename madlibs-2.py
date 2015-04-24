@@ -21,7 +21,7 @@ def say_hello():
 def show_game_form():
 
    answer = request.args.get("playPreference")
-   # print answer 
+  
    if answer == "Yes":
     return render_template("game.html")
         
