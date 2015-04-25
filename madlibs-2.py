@@ -22,14 +22,17 @@ def say_hello():
 @app.route('/game')
 def show_game_form():
 
-   answer = request.args.get("playPreference")
-  
-   if answer == "Yes":
+  player = request.args.get("person")
+  print player
+  answer = request.args.get("playPreference")
+  print answer
+
+  if answer == "Yes":
     gam_e = render_template("game.html")
     print gam_e
     return gam_e
         
-   else:
+  else:
     goo_d = render_template("goodbye.html")
     print goo_d
     return goo_d
@@ -50,10 +53,17 @@ def greet_person():
     compl = render_template("compliment.html", person=player, compliment=compliment)
     print compl
     return compl
+#GLOBAL_COMPL = compl
 
 @app.route('/madlib')
 def show_madlib():
-  mad_l = render_template("madlib.html")
+  color=request.args.get("userInput1")
+  print color
+  noun= request.args.get("userInput2")
+  adjective=request.args.get("userInput3")
+  player = request.args.get("person")
+
+  mad_l=render_template("madlibs.html", color=color, noun=noun, person=player, adjective=adjective)
   print mad_l
   return mad_l
 
